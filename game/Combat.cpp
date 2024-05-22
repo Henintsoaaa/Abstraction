@@ -1,4 +1,4 @@
-#include "header\Combat.h"
+#include "Combat.h"
 #include <iostream>
 
 using namespace std;
@@ -7,6 +7,7 @@ Combat::Combat()
 {
     vie = 3;
 }
+
 Combat::~Combat()
 {
 
@@ -17,32 +18,30 @@ void Combat::start()
     int choice;
     cout << "You are starting the game" << endl;
     
-    while(vie<0)
+    while (vie > 0)
     {
-       cout << "Please choose your movment." << endl;
-       cout << "1 to attack" << endl;
-       cout << "2 to defend" << endl;
-       cout << "3 to stop" << endl;
-       cout << "4 to exit" << endl;
-       cin >> choice;
-       if (choice == 1)
-       {
+        cout << "Please choose your movement." << endl;
+        cout << "1 to attack" << endl;
+        cout << "2 to defend" << endl;
+        cout << "3 to stop" << endl;
+        cout << "4 to exit" << endl;
+        cin >> choice;
+        if (choice == 1)
+        {
             cout << "you attack" << endl;
-       }
-       else if (choice == 2)
-       {
+        }
+        else if (choice == 2)
+        {
             cout << "you defend yourself" << endl;
-       }
-       else if (choice == 3)
-       {
-            Combat::pause();
-       }
-       else if(choice == 4);
-       {
-            Combat::quit();
-       }
-       
-
+        }
+        else if (choice == 3)
+        {
+            pause();
+        }
+        else if (choice == 4)
+        {
+            quit();
+        }
     }
 }
 
@@ -54,23 +53,26 @@ void Combat::pause()
     cout << "1 to continue" << endl;
     cout << "2 to exit" << endl;
     cin >> mouvement;
-    if(mouvement == 1)
+    if (mouvement == 1)
     {
-        Combat::play();
+        play();
     }
-    else if(mouvement == 2)
+    else if (mouvement == 2)
     {
-        Combat::quit();
+        quit();
     }
 }
+
 void Combat::restart()
 {
-    Combat::start();
+    vie = 3;
+    start();
 }
+
 void Combat::play()
 {
     cout << "You've played the game" << endl;
-    Combat::start();
+    start();
 }
 
 void Combat::quit()
