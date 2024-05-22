@@ -1,4 +1,4 @@
-#include "Strategie.h"
+#include "header/Strategie.h"
 #include <iostream>
 
 using namespace std;
@@ -15,48 +15,49 @@ Strategie::~Strategie()
 
 void Strategie::start()
 {
-    cout << "You've started the game" << endl;
+    cout << "Vous avez commencé le jeu" << endl;
     while (time > 0)
     {
-        int choice;
-        cout << "Please choose your movement" << endl;
-        cout << "1 to make a move" << endl;
-        cout << "2 to strategize" << endl;
-        cout << "3 to stop" << endl;
-        cout << "4 to exit" << endl;
-        cin >> choice;
-        if (choice == 1)
+        int choix;
+        cout << "Veuillez choisir votre action" << endl;
+        cout << "1 pour faire un mouvement" << endl;
+        cout << "2 pour élaborer une stratégie" << endl;
+        cout << "3 pour arrêter" << endl;
+        cout << "4 pour quitter" << endl;
+        cin >> choix;
+        if (choix == 1)
         {
-            cout << "you make a move" << endl;
+            cout << "Vous faites un mouvement" << endl;
         }
-        else if (choice == 2)
+        else if (choix == 2)
         {
-            cout << "you strategize" << endl;
+            cout << "Vous élaborez une stratégie" << endl;
         }
-        else if (choice == 3)
+        else if (choix == 3)
         {
             pause();
         }
-        else if (choice == 4)
+        else if (choix == 4)
         {
             quit();
+            break;
         }
 
         time--;
     }
     if (time == 0)
     {
-        cout << "Game over!" << endl;
+        cout << "Jeu terminé!" << endl;
     }
 }
 
 void Strategie::pause()
 {
     int mouvement;
-    cout << "You've stopped the game" << endl;
-    cout << "Would you like to continue the game?" << endl;
-    cout << "1 to continue" << endl;
-    cout << "2 to exit" << endl;
+    cout << "Vous avez arrêté le jeu" << endl;
+    cout << "Voulez-vous continuer le jeu?" << endl;
+    cout << "1 pour continuer" << endl;
+    cout << "2 pour quitter" << endl;
     cin >> mouvement;
     if (mouvement == 1)
     {
@@ -76,12 +77,12 @@ void Strategie::restart()
 
 void Strategie::play()
 {
-    cout << "You've played the game" << endl;
+    cout << "Vous continuez le jeu" << endl;
     start();
 }
 
 void Strategie::quit()
 {
-    cout << "You're going to exit the game" << endl;
+    cout << "Vous allez quitter le jeu" << endl;
     time = 0;
 }

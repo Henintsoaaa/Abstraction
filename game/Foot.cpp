@@ -1,4 +1,4 @@
-#include "Foot.h"
+#include "header/Foot.h"
 #include <iostream>
 
 using namespace std;
@@ -16,32 +16,33 @@ Foot::~Foot()
 
 void Foot::start()
 {
-    cout << "You are starting the game" << endl;
+    cout << "Vous commencez le jeu" << endl;
     while (time > 0)
     {
-        int choice;
-        cout << "Please choose your movement" << endl;
-        cout << "1 to mark point" << endl;
-        cout << "2 to defend your goal" << endl;
-        cout << "3 to stop" << endl;
-        cout << "4 to exit" << endl;
-        cin >> choice;
-        if (choice == 1)
+        int choix;
+        cout << "Veuillez choisir votre action" << endl;
+        cout << "1 pour marquer un point" << endl;
+        cout << "2 pour défendre votre but" << endl;
+        cout << "3 pour arrêter" << endl;
+        cout << "4 pour quitter" << endl;
+        cin >> choix;
+        if (choix == 1)
         {
-            cout << "you have marked a point" << endl;
+            cout << "Vous avez marqué un point" << endl;
             score++;
         }
-        else if (choice == 2)
+        else if (choix == 2)
         {
-            cout << "you defend yourself" << endl;
+            cout << "Vous vous défendez" << endl;
         }
-        else if (choice == 3)
+        else if (choix == 3)
         {
             pause();
         }
-        else if (choice == 4)
+        else if (choix == 4)
         {
             quit();
+            break;
         }
         
         time--;
@@ -50,24 +51,27 @@ void Foot::start()
         {
             pause();
         }
-        if (time == 30)
+        if (time == 0)
         {
-            play();
+            if (score > 0)
+            {
+                cout << "Vous avez gagné le jeu" << endl;
+            }
+            else
+            {
+                cout << "Vous avez perdu le jeu" << endl;
+            }
         }
-    }
-    if (score > 0 && time == 0)
-    {
-        cout << "You win the game" << endl;
     }
 }
 
 void Foot::pause()
 {
     int mouvement;
-    cout << "You've stopped the game" << endl;
-    cout << "Would you like to continue the game?" << endl;
-    cout << "1 to continue" << endl;
-    cout << "2 to exit" << endl;
+    cout << "Vous avez arrêté le jeu" << endl;
+    cout << "Voulez-vous continuer le jeu?" << endl;
+    cout << "1 pour continuer" << endl;
+    cout << "2 pour quitter" << endl;
     cin >> mouvement;
     if (mouvement == 1)
     {
@@ -88,12 +92,12 @@ void Foot::restart()
 
 void Foot::play()
 {
-    cout << "You've played the game" << endl;
+    cout << "Vous continuez le jeu" << endl;
     start();
 }
 
 void Foot::quit()
 {
-    cout << "You're going to exit the game" << endl;
+    cout << "Vous allez quitter le jeu" << endl;
     time = 0;
 }

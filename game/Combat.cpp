@@ -1,4 +1,4 @@
-#include "Combat.h"
+#include "header/Combat.h"
 #include <iostream>
 
 using namespace std;
@@ -15,43 +15,49 @@ Combat::~Combat()
 
 void Combat::start()
 {
-    int choice;
-    cout << "You are starting the game" << endl;
+    int choix;
+    cout << "Vous commencez le jeu" << endl;
     
     while (vie > 0)
     {
-        cout << "Please choose your movement." << endl;
-        cout << "1 to attack" << endl;
-        cout << "2 to defend" << endl;
-        cout << "3 to stop" << endl;
-        cout << "4 to exit" << endl;
-        cin >> choice;
-        if (choice == 1)
+        cout << "Veuillez choisir votre action." << endl;
+        cout << "1 pour attaquer" << endl;
+        cout << "2 pour défendre" << endl;
+        cout << "3 pour arrêter" << endl;
+        cout << "4 pour quitter" << endl;
+        cin >> choix;
+        if (choix == 1)
         {
-            cout << "you attack" << endl;
+            cout << "Vous attaquez" << endl;
+            vie--; // Diminuer la vie pour démonstration
         }
-        else if (choice == 2)
+        else if (choix == 2)
         {
-            cout << "you defend yourself" << endl;
+            cout << "Vous vous défendez" << endl;
         }
-        else if (choice == 3)
+        else if (choix == 3)
         {
             pause();
         }
-        else if (choice == 4)
+        else if (choix == 4)
         {
             quit();
+            break;
         }
+    }
+    if (vie <= 0)
+    {
+        cout << "Jeu terminé! Vous n'avez plus de vie." << endl;
     }
 }
 
 void Combat::pause()
 {
     int mouvement;
-    cout << "You've stopped the game" << endl;
-    cout << "Would you like to continue the game?" << endl;
-    cout << "1 to continue" << endl;
-    cout << "2 to exit" << endl;
+    cout << "Vous avez arrêté le jeu" << endl;
+    cout << "Voulez-vous continuer le jeu?" << endl;
+    cout << "1 pour continuer" << endl;
+    cout << "2 pour quitter" << endl;
     cin >> mouvement;
     if (mouvement == 1)
     {
@@ -71,12 +77,12 @@ void Combat::restart()
 
 void Combat::play()
 {
-    cout << "You've played the game" << endl;
+    cout << "Vous continuez le jeu" << endl;
     start();
 }
 
 void Combat::quit()
 {
-    cout << "You're going to exit the game" << endl;
+    cout << "Vous allez quitter le jeu" << endl;
     vie = 0;
 }

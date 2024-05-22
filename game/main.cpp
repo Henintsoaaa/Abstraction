@@ -7,31 +7,31 @@ using namespace std;
 
 int main()
 {
-    int choice;
-    cout << "Choose a game to play:" << endl;
+    int choix;
+    cout << "Choisissez un jeu à jouer:" << endl;
     cout << "1. Combat" << endl;
     cout << "2. Foot" << endl;
-    cout << "3. Strategie" << endl;
-    cin >> choice;
+    cout << "3. Stratégie" << endl;
+    cin >> choix;
 
-    if (choice == 1)
+    if (choix == 1)
     {
         Combat combat;
         combat.start();
     }
-    else if (choice == 2)
+    else if (choix == 2)
     {
         Foot foot;
         foot.start();
     }
-    else if (choice == 3)
+    else if (choix == 3)
     {
         Strategie strategie;
         strategie.start();
     }
     else
     {
-        cout << "Invalid choice" << endl;
+        cout << "Choix invalide" << endl;
     }
 
     return 0;
