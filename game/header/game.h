@@ -5,7 +5,7 @@ class Game
 {
 public:
     Game();
-    virtual ~Game();
+    ~Game();
     virtual void start() = 0;
     virtual void pause() = 0;
     virtual void play() = 0;
